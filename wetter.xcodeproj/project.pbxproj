@@ -13,6 +13,7 @@
 		3FEADC48218195F600ECE343 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEADC46218195F600ECE343 /* Main.storyboard */; };
 		3FEADC4A218195F700ECE343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEADC49218195F700ECE343 /* Assets.xcassets */; };
 		3FEADC4D218195F700ECE343 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEADC4B218195F700ECE343 /* LaunchScreen.storyboard */; };
+		3FEADC572181A0F600ECE343 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEADC562181A0F600ECE343 /* AddCityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3FEADC49218195F700ECE343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FEADC4C218195F700ECE343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FEADC4E218195F700ECE343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FEADC562181A0F600ECE343 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				3FEADC40218195F600ECE343 /* AppDelegate.swift */,
 				3FEADC42218195F600ECE343 /* MasterViewController.swift */,
+				3FEADC562181A0F600ECE343 /* AddCityViewController.swift */,
 				3FEADC44218195F600ECE343 /* DetailViewController.swift */,
 				3FEADC46218195F600ECE343 /* Main.storyboard */,
 				3FEADC49218195F700ECE343 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 				3FEADC45218195F600ECE343 /* DetailViewController.swift in Sources */,
 				3FEADC43218195F600ECE343 /* MasterViewController.swift in Sources */,
 				3FEADC41218195F600ECE343 /* AppDelegate.swift in Sources */,
+				3FEADC572181A0F600ECE343 /* AddCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
