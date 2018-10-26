@@ -26,18 +26,19 @@ class MasterViewController: UITableViewController {
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
     }
+    
+    @IBAction func cancel(segue:UIStoryboardSegue){
+        
+    }
+    
+    @IBAction func createCity(segue:UIStoryboardSegue){
+        
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
-
-//    @objc
-//    func insertNewObject(_ sender: Any) {
-//        objects.insert(NSDate(), at: 0)
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [indexPath], with: .automatic)
-//    }
 
     // MARK: - Segues
 
@@ -46,10 +47,19 @@ class MasterViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        } else if segue.identifier == "addCitySegue" {
+            let controller = segue.destination as! AddCityViewController
+            controller.delegate = self
+            controller.objects = objects
+            
+//            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//            controller.navigationItem.leftItemsSupplementBackButton = true
+            print("abc")
         }
     }
 
@@ -60,6 +70,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(objects.count)
         return objects.count
     }
 
@@ -67,6 +78,7 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let object = objects[indexPath.row] as! NSDate
+        print(object)
         cell.textLabel!.text = object.description
         return cell
     }
@@ -85,6 +97,9 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    func updateCitiesArray(newArray: [Any]){
+        self.objects = newArray
+    }
 
 }
 
