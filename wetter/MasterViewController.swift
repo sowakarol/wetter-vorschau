@@ -56,9 +56,6 @@ class MasterViewController: UITableViewController {
             let controller = segue.destination as! AddCityViewController
             controller.delegate = self
             controller.objects = objects
-            
-//            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//            controller.navigationItem.leftItemsSupplementBackButton = true
             print("abc")
         }
     }
@@ -70,7 +67,6 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(objects.count)
         return objects.count
     }
 
@@ -97,8 +93,10 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    func updateCitiesArray(newArray: [Any]){
-        self.objects = newArray
+    func updateCitiesArray(newCity: Any){
+        objects.insert(newCity, at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
 }

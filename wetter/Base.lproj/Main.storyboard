@@ -74,13 +74,11 @@
                                     <navigationItem title="Add City" id="pax-wE-J4T">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eIF-1a-rAU">
                                             <connections>
-                                                <action selector="CancelAddingCity:" destination="tvc-he-LmK" id="JkT-Xk-BV1"/>
                                                 <segue destination="F1m-8k-jDy" kind="unwind" identifier="cancelSegue" unwindAction="cancelWithSegue:" id="Yoh-rk-BAY"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="vZ2-pO-I9T">
                                             <connections>
-                                                <action selector="AddButton:" destination="tvc-he-LmK" id="K92-dJ-F5g"/>
                                                 <segue destination="F1m-8k-jDy" kind="unwind" identifier="createCitySegue" unwindAction="createCityWithSegue:" id="F1C-ge-X1m"/>
                                             </connections>
                                         </barButtonItem>
