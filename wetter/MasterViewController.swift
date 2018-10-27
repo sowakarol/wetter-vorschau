@@ -53,8 +53,7 @@ class MasterViewController: UITableViewController {
             }
         } else if segue.identifier == "addCitySegue" {
             let controller = segue.destination as! AddCityViewController
-            controller.delegate = self
-            controller.objects = objects
+//            controller.delegate = self
             print("abc")
         }
     }
@@ -92,8 +91,10 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    func updateCitiesArray(newCity: Any){
-        objects.insert(newCity, at: 0)
+    func updateCitiesArray(newCity: City){
+        print(newCity)
+        let newCityTmp = NSDate()
+        objects.insert(newCityTmp, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }

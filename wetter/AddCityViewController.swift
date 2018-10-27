@@ -9,50 +9,54 @@
 import UIKit
 
 class AddCityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var CityName: UITextField!
+    @IBAction func SearchButtonClicked(_ sender: Any) {
+        WeatherApiService.searchForCities(query: CityName.text!, callback: { cities in
+            self.foundedCities.removeAll()
+            for city in cities! {
+                print(city.title)
+                self.foundedCities.append(city)
+            }
+            DispatchQueue.main.async{
+                self.viewDidAppear(true)
+            }
+        })
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foundCities.count
+        print(foundedCities.count)
+        return foundedCities.count
     }
     
-    @IBOutlet weak var FoundCityCell: UIView!
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let clickedCity = foundedCities[indexPath.row]
+//        delegate.updateCitiesArray(newCity: clickedCity)
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "foundCityCell", for: indexPath)
-        cell.textLabel?.text = foundCities[indexPath.row] as? String
+        print(indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoundedCityCell", for: indexPath)
+        print("title -- " + foundedCities[indexPath.row].title)
+        cell.textLabel?.text = foundedCities[indexPath.row].title
         return cell
         
     }
     
-    var foundCities = [Any]()
-    @IBOutlet weak var foundCitiesTableView: UITableView!
-    var objects = [Any]()
-    //var newCity:Any
-    weak var delegate:MasterViewController!
+    var foundedCities: [City] = []
+    @IBOutlet var foundCitiesTableView: UITableView!
+//    weak var delegate:MasterViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        foundCities.insert("Frankfurt", at: 0)
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createCitySegue" {
-            let controller = segue.destination as! 	MasterViewController
-            let newCity = NSDate()
-            delegate.updateCitiesArray(newCity: newCity)
-            //            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-            //            controller.navigationItem.leftItemsSupplementBackButton = true
-            print("abcd")
-        }
-    }
-    /*
-    // MARK: - Navigation
+//        foundCitiesTableView = UITableView(frame: self.view.bounds, style: .plain)
+//        foundCitiesTableView.dataSource = self
+//        foundCitiesTableView.delegate = self
+//        self.view.addSubview(foundCitiesTableView)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.foundCitiesTableView.reloadData()
+    }
 
 }

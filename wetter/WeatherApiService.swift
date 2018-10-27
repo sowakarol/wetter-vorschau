@@ -11,13 +11,13 @@ import UIKit
 
 class WeatherApiService {
 
-    let weatherEndpoint = "https://www.metaweather.com/api/location/"
-    let weatherPhotosEndpoint = "https://www.metaweather.com/static/img/weather/ico/"
-    let searchCitiesEndpoint = "https://www.metaweather.com/api/location/search?query="
+    static let weatherEndpoint = "https://www.metaweather.com/api/location/"
+    static let weatherPhotosEndpoint = "https://www.metaweather.com/static/img/weather/ico/"
+    static let searchCitiesEndpoint = "https://www.metaweather.com/api/location/search?query="
     
-    func getForecastFromCity(city: City, callback: @escaping ((ForecastList?) -> Void)) {
+    static func getForecastFromCity(city: City, callback: @escaping ((ForecastList?) -> Void)) {
         let session = URLSession(configuration: .default)
-        let endpoint = weatherEndpoint + city.woeid
+        let endpoint = weatherEndpoint + String(city.woeid)
         guard let url = URL(string: endpoint) else {
             print("Error in creating URL for endpoint - " + endpoint)
             return
@@ -46,7 +46,7 @@ class WeatherApiService {
         task.resume()
     }
     
-    func getWeatherStatePhoto(state_abbr:String, callback: @escaping ((UIImage?) -> Void)){
+    static func getWeatherStatePhoto(state_abbr:String, callback: @escaping ((UIImage?) -> Void)){
         let session = URLSession(configuration: .default)
     
         guard let url = URL(string: weatherPhotosEndpoint + "\(state_abbr).ico") else {
@@ -70,13 +70,14 @@ class WeatherApiService {
         task.resume()
     }
     
-    func searchForCities(query:String, callback: @escaping (([City]?) -> Void)){
+    static func searchForCities(query:String, callback: @escaping (([City]?) -> Void)){
         let session = URLSession(configuration: .default)
         
         guard let url = URL(string: searchCitiesEndpoint + query) else {
             print("Error in creating URL for searching cities!")
             return
         }
+        print(url)
         
         let task = session.dataTask(with: url){
             (data, response, error) in
@@ -84,15 +85,18 @@ class WeatherApiService {
                 print("Error in GET for searching cities!")
                 return
             }
+            print(data as Any)
             
             guard let respData = data else {
                 print("Error - did not received response Data!")
                 return
             }
+            print(respData)
             guard let cities = try? JSONDecoder().decode([City].self,from:respData) else{
                 print("Error in parsing")
                 return
             }
+            print(cities)
             callback(cities)
         }
         task.resume()

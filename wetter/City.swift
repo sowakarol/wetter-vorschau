@@ -9,6 +9,6 @@
 import UIKit
 
 class City: NSObject, Decodable {
-    var title:String = ""
-    var woeid:String = ""
+    var title:String
+    var woeid:Int
 }
