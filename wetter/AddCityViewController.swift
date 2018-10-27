@@ -8,16 +8,30 @@
 
 import UIKit
 
-class AddCityViewController: UIViewController {
-
+class AddCityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foundCities.count
+    }
+    
+    @IBOutlet weak var FoundCityCell: UIView!
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "foundCityCell", for: indexPath)
+        cell.textLabel?.text = foundCities[indexPath.row] as? String
+        return cell
+        
+    }
+    
+    var foundCities = [Any]()
+    @IBOutlet weak var foundCitiesTableView: UITableView!
     var objects = [Any]()
     //var newCity:Any
     weak var delegate:MasterViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        foundCities.insert("Frankfurt", at: 0)
     }
     
     

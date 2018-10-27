@@ -14,6 +14,9 @@
 		3FEADC4A218195F700ECE343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEADC49218195F700ECE343 /* Assets.xcassets */; };
 		3FEADC4D218195F700ECE343 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEADC4B218195F700ECE343 /* LaunchScreen.storyboard */; };
 		3FEADC572181A0F600ECE343 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEADC562181A0F600ECE343 /* AddCityViewController.swift */; };
+		CBB1F0C02183BA2200BCFA7E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1F0BF2183BA2200BCFA7E /* City.swift */; };
+		CBB1F0C22183C07F00BCFA7E /* ListForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1F0C12183C07F00BCFA7E /* ListForecast.swift */; };
+		CBB1F0C42183C0EE00BCFA7E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1F0C32183C0EE00BCFA7E /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		3FEADC4C218195F700ECE343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FEADC4E218195F700ECE343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FEADC562181A0F600ECE343 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		CBB1F0BF2183BA2200BCFA7E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		CBB1F0C12183C07F00BCFA7E /* ListForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListForecast.swift; sourceTree = "<group>"; };
+		CBB1F0C32183C0EE00BCFA7E /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,9 @@
 				3FEADC49218195F700ECE343 /* Assets.xcassets */,
 				3FEADC4B218195F700ECE343 /* LaunchScreen.storyboard */,
 				3FEADC4E218195F700ECE343 /* Info.plist */,
+				CBB1F0BF2183BA2200BCFA7E /* City.swift */,
+				CBB1F0C12183C07F00BCFA7E /* ListForecast.swift */,
+				CBB1F0C32183C0EE00BCFA7E /* Forecast.swift */,
 			);
 			path = wetter;
 			sourceTree = "<group>";
@@ -142,8 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEADC45218195F600ECE343 /* DetailViewController.swift in Sources */,
+				CBB1F0C02183BA2200BCFA7E /* City.swift in Sources */,
+				CBB1F0C42183C0EE00BCFA7E /* Forecast.swift in Sources */,
 				3FEADC43218195F600ECE343 /* MasterViewController.swift in Sources */,
 				3FEADC41218195F600ECE343 /* AppDelegate.swift in Sources */,
+				CBB1F0C22183C07F00BCFA7E /* ListForecast.swift in Sources */,
 				3FEADC572181A0F600ECE343 /* AddCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
