@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+    var forecastLists = [ForecastList]()
 
     let munichId = "676757"
 
@@ -44,7 +44,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = forecastLists[indexPath.row].city?.title
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 
                 controller.detailItem = object
@@ -53,8 +53,7 @@ class MasterViewController: UITableViewController {
             }
         } else if segue.identifier == "addCitySegue" {
             let controller = segue.destination as! AddCityViewController
-//            controller.delegate = self
-            print("abc")
+            controller.delegate = self
         }
     }
 
@@ -65,15 +64,15 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return forecastLists.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        print(object)
-        cell.textLabel!.text = object.description
+        let object = forecastLists[indexPath.row].city?.title
+        print(object!)
+        cell.textLabel!.text = object
         return cell
     }
 
@@ -84,7 +83,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            forecastLists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -93,10 +92,14 @@ class MasterViewController: UITableViewController {
 
     func updateCitiesArray(newCity: City){
         print(newCity)
-        let newCityTmp = NSDate()
-        objects.insert(newCityTmp, at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        WeatherApiService.getForecastFromCity(city: newCity, callback: { forecastList in
+            self.forecastLists.insert(forecastList!, at: 0)
+            DispatchQueue.main.async{
+                let indexPath = IndexPath(row: 0, section: 0)
+                self.tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        })
+//        tableView.reloadData()
     }
 
 }
