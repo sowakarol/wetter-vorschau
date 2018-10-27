@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListForecast: NSObject {
-    let consolidated_weather: [Forecast] = []
-    let city:City? = nil
+class ForecastList: NSObject, Decodable {
+    var consolidated_weather: [Forecast] = []
+    var city:City? = nil
 }

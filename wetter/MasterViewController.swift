@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
+    let munichId = "676757"
 
     override func viewDidLoad() {
         super.viewDidLoad()

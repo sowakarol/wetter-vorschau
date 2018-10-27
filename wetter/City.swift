@@ -8,7 +8,7 @@
 
 import UIKit
 
-class City: NSObject {
-    var name:String = ""
-    var id:String = ""
+class City: NSObject, Decodable {
+    var title:String = ""
+    var woeid:String = ""
 }
