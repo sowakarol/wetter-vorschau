@@ -13,16 +13,31 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var forecastLists = [ForecastList]()
 
-    let munichId = "676757"
+    let munichId = 676757
+    let berlinId = 638242
+    let warsawId = 523920
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let warsaw = City(title: "Warsaw", woeid: warsawId)
+        let berlin = City(title: "Berlin", woeid: berlinId)
+        let munich = City(title: "Munich", woeid: munichId)
+        initForecastList(cityArray: [warsaw, berlin, munich])
+        
         navigationItem.leftBarButtonItem = editButtonItem
 
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        }
+    }
+    
+    func initForecastList(cityArray:[City]){
+        for city in cityArray {
+            WeatherApiService.getForecastFromCity(city: city, callback: {forecastList in
+                    self.addForecastList(forecastList: forecastList!)
+            })
         }
     }
     
@@ -89,17 +104,20 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
+    func addForecastList(forecastList: ForecastList){
+        self.forecastLists.insert(forecastList, at: 0)
+        DispatchQueue.main.async{
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
 
     func updateCitiesArray(newCity: City){
         print(newCity)
         WeatherApiService.getForecastFromCity(city: newCity, callback: { forecastList in
-            self.forecastLists.insert(forecastList!, at: 0)
-            DispatchQueue.main.async{
-                let indexPath = IndexPath(row: 0, section: 0)
-                self.tableView.insertRows(at: [indexPath], with: .automatic)
-            }
+            self.addForecastList(forecastList: forecastList!)
         })
-//        tableView.reloadData()
     }
 
 }

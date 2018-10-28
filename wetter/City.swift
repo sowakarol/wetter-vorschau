@@ -11,4 +11,9 @@ import UIKit
 class City: NSObject, Decodable {
     var title:String
     var woeid:Int
+    
+    init(title: String, woeid: Int){
+        self.title = title
+        self.woeid = woeid
+    }
 }
