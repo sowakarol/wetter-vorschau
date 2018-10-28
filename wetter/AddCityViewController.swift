@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class AddCityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+    @IBOutlet weak var LocationLabel: UILabel!
     let locationManager = CLLocationManager()
     @IBOutlet weak var CityName: UITextField!
     
@@ -22,7 +23,18 @@ class AddCityViewController: UIViewController, UITableViewDataSource, UITableVie
             cities in
             self.updateCities(cities: cities!)
         })
+        self.decodeLocation(location: locationManager.location!)
     }
+
+    private func decodeLocation(location: CLLocation){
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location, completionHandler: {
+            (placemarks, error) in
+            print(placemarks!.first!)
+            self.LocationLabel.text = "You are in \(placemarks!.first!.locality ?? ""), \(placemarks!.first!.country ?? "")"
+        })
+    }
+    
     @IBAction func SearchButtonClicked(_ sender: Any) {
         WeatherApiService.searchForCities(query: CityName.text!, callback: { cities in
             self.updateCities(cities: cities!)

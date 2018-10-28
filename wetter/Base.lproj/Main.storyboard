@@ -262,8 +262,14 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dc-Ex-s3I">
+                                        <rect key="frame" x="125" y="66.5" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rIv-Yf-hOT">
-                                        <rect key="frame" x="25" y="66.5" width="250" height="325.5"/>
+                                        <rect key="frame" x="25" y="124.5" width="250" height="267.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FoundedCityCell" textLabel="DRm-i6-ey8" style="IBUITableViewCellStyleDefault" id="mIl-Dt-hBh">
@@ -319,6 +325,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CityName" destination="fCS-CX-1ut" id="sgb-Qa-MVb"/>
+                        <outlet property="LocationLabel" destination="9Dc-Ex-s3I" id="WlA-fX-zaO"/>
                         <outlet property="foundCitiesTableView" destination="rIv-Yf-hOT" id="UfU-qx-AnY"/>
                     </connections>
                 </viewController>
