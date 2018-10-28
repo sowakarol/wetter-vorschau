@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     var date = Date()
     let formatter = DateFormatter()
     var dateIterator = 0
@@ -89,27 +89,24 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var LowestTemperatureField: UITextField!
     
     @IBOutlet weak var WeatherStateImage: UIImageView!
-//    func configureView() {
-//        // Update the user interface for the detail item.
-//
-//
-//        }
-//    }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationItem.title = self.detailItem?.city?.title
+        
         formatter.dateFormat = "yyyy.MM.dd"
         let strDate = formatter.string(from: date)
         self.responseDataLength = (self.detailItem?.consolidated_weather.count)!
-        print(strDate)
         prepareGui(newDate: strDate)
         if((self.detailItem?.consolidated_weather.count)! > 0){
             updateWeatherInfo(forecast: (self.detailItem?.consolidated_weather[0])!)
-        
+            
         }
     }
     var detailItem: ForecastList?
-
+    
 }
+
 

@@ -10,7 +10,7 @@ import UIKit
 
 
 class WeatherApiService {
-
+    
     static let weatherEndpoint = "https://www.metaweather.com/api/location/"
     static let weatherPhotosEndpoint = "https://www.metaweather.com/static/img/weather/ico/"
     static let searchCitiesEndpoint = "https://www.metaweather.com/api/location/search?query="
@@ -48,19 +48,19 @@ class WeatherApiService {
     
     static func getWeatherStatePhoto(state_abbr:String, callback: @escaping ((UIImage?) -> Void)){
         let session = URLSession(configuration: .default)
-    
+        
         guard let url = URL(string: weatherPhotosEndpoint + "\(state_abbr).ico") else {
             print("Error in creating URL for Weather State Photos!")
             return
         }
-            
+        
         let task = session.dataTask(with: url){
             (data, response, error) in
             guard error == nil else {
                 print("Error in GET for Weather State Photos!")
-            return
+                return
             }
-                
+            
             guard let respData = data else {
                 print("Error - did not received response Data!")
                 return
@@ -85,23 +85,20 @@ class WeatherApiService {
                 print("Error in GET for searching cities!")
                 return
             }
-            print(data as Any)
-            
             guard let respData = data else {
                 print("Error - did not received response Data!")
                 return
             }
-            print(respData)
             guard let cities = try? JSONDecoder().decode([City].self,from:respData) else{
                 print("Error in parsing")
                 return
             }
-            print(cities)
             callback(cities)
         }
         task.resume()
     }
     
     
-
+    
 }
+

@@ -15,4 +15,7 @@ class Forecast: NSObject, Decodable {
     var wind_direction_compass:String
     var air_pressure:Double
     var weather_state_abbr: String
+    var the_temp:Double
 }
+
+
