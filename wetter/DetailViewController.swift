@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
     }
     
     func updateDateLabel(newDate: String){
-        DateLabel.text = newDate
+        self.DateLabel.text = newDate
     }
     
     func checkButtons(){
@@ -102,21 +102,14 @@ class DetailViewController: UIViewController {
         formatter.dateFormat = "yyyy.MM.dd"
         let strDate = formatter.string(from: date)
         self.responseDataLength = (self.detailItem?.consolidated_weather.count)!
-        updateDateLabel(newDate: strDate)
+        print(strDate)
         prepareGui(newDate: strDate)
+        if((self.detailItem?.consolidated_weather.count)! > 0){
+            updateWeatherInfo(forecast: (self.detailItem?.consolidated_weather[0])!)
+        
+        }
     }
     var detailItem: ForecastList?
-    
-//    var detailItem: ForecastList? {
-//        didSet {
-//            // Update the view.
-//            formatter.dateFormat = "yyyy.MM.dd"
-//            let strDate = formatter.string(from: date)
-//            updateDateLabel(newDate: strDate)
-//            prepareGui(newDate: strDate)
-//        }
-//    }
-
 
 }
 
