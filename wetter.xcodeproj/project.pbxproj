@@ -18,6 +18,7 @@
 		CBB1F0C22183C07F00BCFA7E /* ForecastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1F0C12183C07F00BCFA7E /* ForecastList.swift */; };
 		CBB1F0C42183C0EE00BCFA7E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1F0C32183C0EE00BCFA7E /* Forecast.swift */; };
 		CBB1F0C62183E4D000BCFA7E /* WeatherApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1F0C52183E4D000BCFA7E /* WeatherApiService.swift */; };
+		CBE4310E218629FC00FBBB9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE4310D218629FC00FBBB9B /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CBB1F0C12183C07F00BCFA7E /* ForecastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastList.swift; sourceTree = "<group>"; };
 		CBB1F0C32183C0EE00BCFA7E /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		CBB1F0C52183E4D000BCFA7E /* WeatherApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiService.swift; sourceTree = "<group>"; };
+		CBE4310D218629FC00FBBB9B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				CBB1F0C12183C07F00BCFA7E /* ForecastList.swift */,
 				CBB1F0C32183C0EE00BCFA7E /* Forecast.swift */,
 				CBB1F0C52183E4D000BCFA7E /* WeatherApiService.swift */,
+				CBE4310D218629FC00FBBB9B /* MapViewController.swift */,
 			);
 			path = wetter;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				CBB1F0C02183BA2200BCFA7E /* City.swift in Sources */,
 				CBB1F0C42183C0EE00BCFA7E /* Forecast.swift in Sources */,
 				3FEADC43218195F600ECE343 /* MasterViewController.swift in Sources */,
+				CBE4310E218629FC00FBBB9B /* MapViewController.swift in Sources */,
 				3FEADC41218195F600ECE343 /* AppDelegate.swift in Sources */,
 				CBB1F0C62183E4D000BCFA7E /* WeatherApiService.swift in Sources */,
 				CBB1F0C22183C07F00BCFA7E /* ForecastList.swift in Sources */,

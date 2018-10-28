@@ -107,6 +107,15 @@ class DetailViewController: UIViewController {
     }
     var detailItem: ForecastList?
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let object = detailItem?.city
+            let controller = segue.destination as! MapViewController
+            
+            controller.city = object
+        }
+    }
+    
 }
 
 

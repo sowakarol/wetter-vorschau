@@ -19,9 +19,9 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let warsaw = City(title: "Warsaw", woeid: warsawId)
-        let berlin = City(title: "Berlin", woeid: berlinId)
-        let munich = City(title: "Munich", woeid: munichId)
+        let warsaw = City(title: "Warsaw", woeid: warsawId, latt_long: "52.235352,21.009390")
+        let berlin = City(title: "Berlin", woeid: berlinId, latt_long: "52.516071,13.376980")
+        let munich = City(title: "Munich", woeid: munichId, latt_long: "48.136410,11.577530")
         initForecastList(cityArray: [warsaw, berlin, munich])
         
         navigationItem.leftBarButtonItem = editButtonItem
