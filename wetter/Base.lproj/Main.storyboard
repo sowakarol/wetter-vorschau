@@ -222,27 +222,39 @@
                                 <rect key="frame" x="10" y="107" width="300" height="392"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g3W-oH-Uhe">
-                                        <rect key="frame" x="6" y="0.0" width="288" height="77"/>
+                                        <rect key="frame" x="6" y="0.0" width="288" height="20.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="nTK-T2-wnN">
-                                                <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZM-vB-nPl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCS-CX-1ut">
-                                                        <rect key="frame" x="163.5" y="0.0" width="124.5" height="30"/>
+                                                        <rect key="frame" x="163.5" y="0.0" width="124.5" height="20.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U19-Sj-tgm">
+                                        <rect key="frame" x="0.0" y="28.5" width="300" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjY-N2-0e1">
+                                                <rect key="frame" x="0.0" y="0.0" width="146" height="30"/>
+                                                <state key="normal" title="Use my location"/>
+                                                <connections>
+                                                    <action selector="MyLocationButtonClicked:" destination="tvc-he-LmK" eventType="touchUpInside" id="OgH-EZ-Izg"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flu-ZQ-sKE">
-                                                <rect key="frame" x="240" y="35" width="48" height="42"/>
+                                                <rect key="frame" x="154" y="0.0" width="146" height="30"/>
                                                 <state key="normal" title="Search"/>
                                                 <connections>
                                                     <action selector="SearchButtonClicked:" destination="tvc-he-LmK" eventType="touchUpInside" id="41o-3o-iG3"/>
@@ -251,7 +263,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rIv-Yf-hOT">
-                                        <rect key="frame" x="25" y="85" width="250" height="307"/>
+                                        <rect key="frame" x="25" y="66.5" width="250" height="325.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FoundedCityCell" textLabel="DRm-i6-ey8" style="IBUITableViewCellStyleDefault" id="mIl-Dt-hBh">
@@ -283,8 +295,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rIv-Yf-hOT" firstAttribute="leading" secondItem="8g9-bW-SM2" secondAttribute="leading" constant="25" id="E0n-nc-F2p"/>
+                                    <constraint firstItem="U19-Sj-tgm" firstAttribute="leading" secondItem="8g9-bW-SM2" secondAttribute="leading" id="IUj-Sc-rf8"/>
                                     <constraint firstAttribute="trailing" secondItem="rIv-Yf-hOT" secondAttribute="trailing" constant="25" id="L0T-uL-Y4f"/>
                                     <constraint firstAttribute="bottom" secondItem="rIv-Yf-hOT" secondAttribute="bottom" id="Q28-7x-n1i"/>
+                                    <constraint firstAttribute="trailing" secondItem="U19-Sj-tgm" secondAttribute="trailing" id="Y3H-dY-TRC"/>
                                     <constraint firstAttribute="bottom" secondItem="rIv-Yf-hOT" secondAttribute="bottom" id="cf4-IZ-dd6"/>
                                 </constraints>
                             </stackView>

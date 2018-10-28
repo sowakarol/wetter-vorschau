@@ -14,6 +14,7 @@ class WeatherApiService {
     static let weatherEndpoint = "https://www.metaweather.com/api/location/"
     static let weatherPhotosEndpoint = "https://www.metaweather.com/static/img/weather/ico/"
     static let searchCitiesEndpoint = "https://www.metaweather.com/api/location/search?query="
+    static let searchCitiesCoordsEndpoint = "https://www.metaweather.com/api/location/search?lattlong="
     
     static func getForecastFromCity(city: City, callback: @escaping ((ForecastList?) -> Void)) {
         let session = URLSession(configuration: .default)
@@ -98,7 +99,35 @@ class WeatherApiService {
         task.resume()
     }
     
-    
+    static func searchForCitiesByCoords(latitude:Double, longitude:Double, callback: @escaping (([City]?) -> Void)){
+        let session = URLSession(configuration: .default)
+        
+        let endpoint = searchCitiesCoordsEndpoint + String(format:"%f",latitude) + "," + String(format:"%f",longitude)
+        
+        guard let url = URL(string: endpoint) else {
+            print("Error in creating URL for searching cities by coords!")
+            return
+        }
+        print(url)
+        
+        let task = session.dataTask(with: url){
+            (data, response, error) in
+            guard error == nil else {
+                print("Error in GET for searching cities by coords!")
+                return
+            }
+            guard let respData = data else {
+                print("Error - did not received response Data!")
+                return
+            }
+            guard let cities = try? JSONDecoder().decode([City].self,from:respData) else{
+                print("Error in parsing")
+                return
+            }
+            callback(cities)
+        }
+        task.resume()
+    }
     
 }
 
